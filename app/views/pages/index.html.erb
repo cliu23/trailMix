@@ -6,50 +6,56 @@
     <title>Trail Mix</title>
 </head>
     <body>
-        <h1>Trail Mix</h1>
-   
+	    <div class="container-fluid">
+	  		<div class="row">
+	  			<div class = "col-xs-12">
+	        		<h1 class = "text-center">Trail Mix</h1>
+	   			</div>
+	   			
+				<%= form_tag root_path, method: 'get', class: 'form-inline' do %>
+					 
+					<div class="form-group">
+						<%= text_field_tag :location, nil, placeholder: 'Type an address, city, or zip code.', class: 'form-control' %>
+					</div>
+					<div class="form-group">
+						<%= select_tag "activity", "
+						<option value=''>Select an Activity</option>
+						<option>hiking</option>
+						<option>camping</option>
+						<option>mountain biking</option>
+						<option>caving</option>
+						<option>snow sports</option>
 
-<%= form_tag root_path, method: 'get', class: 'form-inline' do %>
-  <div class="form-group">
-    <%= text_field_tag :location, nil, placeholder: 'Type an address, city, or zip code.', class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= select_tag "activity", "
-    <option value=''>Select an Activity</option>
-    <option>hiking</option>
-    <option>camping</option>
-    <option>mountain biking</option>
-    <option>caving</option>
-    <option>snow sports</option>
-
-    ".html_safe, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= submit_tag "Search", class: "btn btn-default" %>
-  </div>
-<% end %>
+						".html_safe, class: 'form-control' %>
+					</div>
+					<div class="form-group">
+						<%= submit_tag "Search", class: "btn btn-default" %>
+					</div>
+				
+				<% end %>
+				
 
 
+				<% if @response %>
+					<% @response["places"].each do |places| %>
 
-<% if @response %>
-  <% @response["places"].each do |places| %>
+				    	<h2><%= "#{places["city"]}, #{places["state"]}" %></h2>
 
-    <h2><%= "#{places["city"]}, #{places["state"]}" %></h2>
+							<% places["activities"].each do |activity| %>
+				          
+					    	<ul>
+						        <li><%= activity["name"] %></li>
+						        <li><%= activity["description"] %></li>
+						        <li><%= activity["activity_type_name"] %></li>
+					        </ul>
 
-      <% places["activities"].each do |activity| %>
-          
-          <ul>
-            <li><%= activity["name"] %></li>
-            <li><%= activity["description"] %></li>
-            <li><%= activity["activity_type_name"] %></li>
-          </ul>
+				    	<% end %>
 
-        <% end %>
-
-  <% end %>
-<% end %>
-
-<div id="map-canvas"> </div>
+					<% end %>
+				<% end %>
+		
+			</div>
+		</div>
     </body>
 </html>
 
