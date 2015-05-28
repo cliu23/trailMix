@@ -26,7 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'httparty'
 
 gem 'geocoder'
-
+gem 'yelp'
 gem 'bootstrap-sass'
 
 # Use ActiveModel has_secure_password

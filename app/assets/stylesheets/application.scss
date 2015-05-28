@@ -16,3 +16,17 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.carousel-inner {
+  max-height: 400px;
+}
+
+.slider_image {
+  max-height: 400px;
+}
+
+.item {
+	background-size: cover; 
+	background-position: center; 
+}
+
