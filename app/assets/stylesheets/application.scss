@@ -18,11 +18,11 @@
 @import "bootstrap";
 
 .carousel-inner {
-  max-height: 400px;
+  max-height: 100%;
 }
 
 .slider_image {
-  max-height: 400px;
+  max-height: 100%;
 }
 
 .item {
@@ -30,3 +30,8 @@
 	background-position: center; 
 }
 
+
+#map-canvas {
+	height: 300px;
+	width: 300px;
+}
