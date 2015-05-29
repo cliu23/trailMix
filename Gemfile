@@ -29,6 +29,8 @@ gem 'instagram'
 
 gem 'twitter'
 
+gem 'figaro'
+
 gem 'geocoder'
 gem 'yelp'
 gem 'bootstrap-sass'

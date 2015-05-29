@@ -91,9 +91,17 @@
 
 					<% end %>
 				<% end %>
-		
-			</div>
-		</div>
+				<%= @responses %>
+				<%= @name %>
+				<% unless @instagram.nil? %>
+
+   <% @instagram.each do |instagram| %>
+
+   <%= image_tag instagram.images.standard_resolution.url %>
+
+   <% end %>
+
+<% end %>
 
     	<div id="map-canvas"> 
 
