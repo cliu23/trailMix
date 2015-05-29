@@ -30,27 +30,18 @@ class PagesController < ApplicationController
         @coordinates << [place["lat"],place["lon"]]
       end
     end
-
-  
-  end 
-  def weather
-      if params[:location] && params[:location] != ''
-        zip = params[:location]
-    # uri = HTTParty.get 'http://api.openweathermap.org/data/2.5/'
-        searchuri = HTTParty.get "http://api.openweathermap.org/data/2.5/weather?zip=#{zip},us&units=imperial"
-        @response = JSON.parse(searchuri.body)
-      end
   end
-  def twitter
-      if params[:tag] && params[:tag] != ''
-        tag = params[:tag]
-        @tweets = $client.search("##{tag}" + " -rt", result_type: "recent").take(3)
-      end
-    end
-    def instagram
-    if params[:tag] && params[:tag] != ''
-      tag = params[:tag]
-        @instagram = Instagram.tag_recent_media("#{tag}", {:count => 4})
-    end
+  # container method
+  def show
+  # we need to take lat and lon from show location and save as varialble named lat lon
+  # we need to remove whitespace from trail name and save as a variable named name
+  # weather endpoint
+        searchuri = HTTParty.get "http://api.openweathermap.org/data/2.5/forecast/daily?lat=#{lat}&lon=#{lon}&units=imperial&cnt=5&mode=json"
+        @response = JSON.parse(searchuri.body)
+ 
+  # tweet and instagram endpoints
+      @tweets = $client.search("##{name}" + " -rt", result_type: "recent").take(3)
+       @instagram = Instagram.tag_recent_media("#{name}", {:count => 4})
   end
 end
+
