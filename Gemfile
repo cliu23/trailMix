@@ -25,6 +25,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'httparty'
 
+gem 'instagram'
+
+gem 'twitter'
+
 gem 'geocoder'
 gem 'yelp'
 gem 'bootstrap-sass'
