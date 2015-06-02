@@ -35,6 +35,7 @@ class PagesController < ApplicationController
         name = trail.delete(' ')
         # weather not working yet
         # also need new trail get request
+      @trail = HTTParty.get(endpoint + "&q[name_eq]=#{trail}")
       searchuri = HTTParty.get "http://api.openweathermap.org/data/2.5/forecast/daily?lat=#{@lat}&lon=#{@lon}&units=imperial&cnt=5&mode=json"
       @responses = JSON.parse(searchuri.body)
       @name = @responses['city']['name']
