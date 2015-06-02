@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+
   def index
 
     endpoint = "https://outdoor-data-api.herokuapp.com/api.json?api_key=4146c148c3d63d322c2b88b4870a6ba1"

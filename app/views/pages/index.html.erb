@@ -11,44 +11,46 @@
 	  		<div class="row">
 	  			
 	   			
-	   				<div class="carousel-inner" role="listbox">
-	   			<div id="index-carousel" class="carasouel slide" data-ride="carousel" data-interval="5000">
-	   				<!-- indicators -->
-	   				<ol class="carousel-indicators">
-	   					<li data-target="#index-carousel" data-slide-to="0" class="active"></li>
-	   					<li data-target="#index-carousel" data-slide-to="1"></li>
-	   					<li data-target="#index-carousel" data-slide-to="2"></li>
-	   					<li data-target="#index-carousel" data-slide-to="3"></li>
-	   					<li data-target="#index-carousel" data-slide-to="4"></li>
-	   				</ol>
-					<div class = "col-xs-12">
-	        		<h1 class = "text-center">Trail Mix</h1>
-	   				</div>
-	   				<!-- Wrapper for slides -->
-	   				<div class="carousel-inner" role="listbox">
-	   					<div class="item active">
-	   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking1.jpg" %>); height: 400px;">
-	   						</div>
-	   					</div>
-	   					<div class="item">
-	   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking2.jpg" %>); height: 400px;">
-	   						</div>
-	   					</div>
-						<div class="item">
-	   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking3.jpg" %>); height: 400px;">
-	   						</div>
-	   					</div>
-						<div class="item">
-	   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking4.jpg" %>); height: 400px;">
-	   						</div>
-	   					</div>
-	   					<div class="item">
-	   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking5.jpg" %>); height: 400px;">
-	   						</div>
-	   					</div>
-	   				</div>
-	   			
+		   		<div class="carousel-inner" role="listbox">
+		   			<div id="index-carousel" class="carasouel slide" data-ride="carousel" data-interval="5000">
 
+		   				<!-- indicators -->
+		   				<ol class="carousel-indicators">
+		   					<li data-target="#index-carousel" data-slide-to="0" class="active"></li>
+		   					<li data-target="#index-carousel" data-slide-to="1"></li>
+		   					<li data-target="#index-carousel" data-slide-to="2"></li>
+		   					<li data-target="#index-carousel" data-slide-to="3"></li>
+		   					<li data-target="#index-carousel" data-slide-to="4"></li>
+		   				</ol>
+						<div class = "col-xs-12">
+		        			<h1 class = "text-center">Trail Mix</h1>
+		   				</div>
+
+		   				<!-- Wrapper for slides -->
+		   				<div class="carousel-inner" role="listbox">
+		   					<div class="item active">
+		   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking1.jpg" %>); height: 400px;">
+		   						</div>
+		   					</div>
+		   					<div class="item">
+		   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking2.jpg" %>); height: 400px;">
+		   						</div>
+		   					</div>
+							<div class="item">
+		   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking3.jpg" %>); height: 400px;">
+		   						</div>
+		   					</div>
+							<div class="item">
+		   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking4.jpg" %>); height: 400px;">
+		   						</div>
+		   					</div>
+		   					<div class="item">
+		   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking5.jpg" %>); height: 400px;">
+		   						</div>
+		   					</div>
+		   				</div>
+	   			
+						<div>
 						<%= form_tag root_path, method: 'get', class: 'form-inline' do %>
 							 
 							<div class="form-group">
@@ -68,10 +70,15 @@
 							<div class="form-group">
 								<%= submit_tag "Search", class: "btn btn-default" %>
 							</div>
-						
-						<% end %>
+							<% end %>
+						</div>
 					</div>
 				</div>
+			</div>
+		</div>	
+						
+					
+				
 		
 
 				<% if @response %>
