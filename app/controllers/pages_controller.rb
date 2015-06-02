@@ -35,11 +35,13 @@ class PagesController < ApplicationController
         name = trail.delete(' ')
         # weather not working yet
         # also need new trail get request
-      @trail = HTTParty.get(endpoint + "&q[name_eq]=#{trail}")
+      trailuri = HTTParty.get(endpoint + "&q[name_eq]=#{trail}")
+      @trail = JSON.parse(trailuri.body)
+      @lat = @trail["places"][0]["lat"]
+      @lon = @trail["places"][0]["lon"]
       searchuri = HTTParty.get "http://api.openweathermap.org/data/2.5/forecast/daily?lat=#{@lat}&lon=#{@lon}&units=imperial&cnt=5&mode=json"
       @responses = JSON.parse(searchuri.body)
       @name = @responses['city']['name']
-      puts @responses
       @instagram = Instagram.tag_recent_media("#{name}", {:count => 4})
       @tweets = $client.search("##{name}" + " -rt", result_type: "recent").take(3)
     else
