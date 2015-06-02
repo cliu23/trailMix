@@ -86,6 +86,7 @@
 						        <li><%= activity["description"] %></li>
 						        <li><%= activity["activity_type_name"] %></li>
 					        </ul>
+					    <%= link_to "Details", trail: "#{activity['name']}", lat: "{places['lat']}", action: "index" %>
 
 				    	<% end %>
 
@@ -102,6 +103,7 @@
    <% end %>
 
 <% end %>
+
 
     	<div id="map-canvas"> 
 
