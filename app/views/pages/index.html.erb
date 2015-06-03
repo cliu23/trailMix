@@ -6,78 +6,61 @@
     <title>Trail Mix</title>
 </head>
     <body>
+    <div class="jumbotron special">
+    	<div class="navbar transparent navbar-inverse navbar-static-top hr">
+		    <div class="navbar-brand logo color">Trail Mix</div>
+		    	<div class="navbar-brand-right">
+    </div>
+    <div class="container">
 
-	    <div class="container-fluid">
-	  		<div class="row">
-	  			
-	   			
-		   		<div class="carousel-inner" role="listbox">
-		   			<div id="index-carousel" class="carasouel slide" data-ride="carousel" data-interval="5000">
+        <div class="navbar-header color">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-		   				<!-- indicators -->
-		   				<ol class="carousel-indicators">
-		   					<li data-target="#index-carousel" data-slide-to="0" class="active"></li>
-		   					<li data-target="#index-carousel" data-slide-to="1"></li>
-		   					<li data-target="#index-carousel" data-slide-to="2"></li>
-		   					<li data-target="#index-carousel" data-slide-to="3"></li>
-		   					<li data-target="#index-carousel" data-slide-to="4"></li>
-		   				</ol>
-						<div class = "col-xs-12">
-		        			<h1 class = "text-center">Trail Mix</h1>
-		   				</div>
+        </div>
+        <div class="navbar-collapse collapse pull-right">
+            <ul class="nav navbar-nav mineul color">
+              <li><a href="#">About</a></li>
+               <li><a href="#">Contact</a></li>
+               <li><a href="#">Help</a></li>
+            </ul>
 
-		   				<!-- Wrapper for slides -->
-		   				<div class="carousel-inner" role="listbox">
-		   					<div class="item active">
-		   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking1.jpg" %>); height: 400px;">
-		   						</div>
-		   					</div>
-		   					<div class="item">
-		   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking2.jpg" %>); height: 400px;">
-		   						</div>
-		   					</div>
-							<div class="item">
-		   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking3.jpg" %>); height: 400px;">
-		   						</div>
-		   					</div>
-							<div class="item">
-		   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking4.jpg" %>); height: 400px;">
-		   						</div>
-		   					</div>
-		   					<div class="item">
-		   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking5.jpg" %>); height: 400px;">
-		   						</div>
-		   					</div>
-		   				</div>
-	   			
-						<div>
-						<%= form_tag root_path, method: 'get', class: 'form-inline' do %>
-							 
-							<div class="form-group">
-								<%= text_field_tag :location, nil, placeholder: 'Type an address, city, or zip code.', class: 'form-control' %>
-							</div>
-							<div class="form-group">
-								<%= select_tag "activity", "
-								<option value=''>Select an Activity</option>
-								<option>hiking</option>
-								<option>camping</option>
-								<option>mountain biking</option>
-								<option>caving</option>
-								<option>snow sports</option>
+        </div>
+    </div>
+</div>
+		<div class="container">
+			
+	   			 <div class="container-fluid " id="section2">
+	   			 	<div class="row">
+	   			 		<div class="col-md-12 text-center">
+							<%= form_tag root_path, method: 'get', class: 'form-inline' do %>
+								 <div class="form-group">
+									<%= text_field_tag :location, nil, placeholder: 'Type an address, city, or zip code.', class: 'form-control' %>
+								</div>
+								<div class="form-group">
+									<%= select_tag "activity", "
+									<option value=''>Select an Activity</option>
+									<option>hiking</option>
+									<option>camping</option>
+									<option>mountain biking</option>
+									<option>caving</option>
+									<option>snow sports</option>
 
-								".html_safe, class: 'form-control' %>
-							</div>
-							<div class="form-group">
-								<%= submit_tag "Search", class: "btn btn-default" %>
-							</div>
+									".html_safe, class: 'form-control' %>
+								</div>
+								<div class="form-group">
+									<%= submit_tag "Search", class: "btn btn-default" %>
+								</div>
 							<% end %>
 						</div>
 					</div>
-				</div>
+				</div>		
 			</div>
-		</div>	
-						
-					
+		</div>
+
 				
 		
 
