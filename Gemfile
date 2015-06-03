@@ -31,6 +31,8 @@ gem 'twitter'
 
 gem 'figaro'
 
+gem 'gon'
+
 gem 'geocoder'
 gem 'yelp'
 gem 'bootstrap-sass'

@@ -7,48 +7,9 @@
 </head>
     <body>
 
-	    <div class="container-fluid">
-	  		<div class="row">
-	  			
-	   			
-	   				<div class="carousel-inner" role="listbox">
-	   			<div id="index-carousel" class="carasouel slide" data-ride="carousel" data-interval="5000">
-	   				<!-- indicators -->
-	   				<ol class="carousel-indicators">
-	   					<li data-target="#index-carousel" data-slide-to="0" class="active"></li>
-	   					<li data-target="#index-carousel" data-slide-to="1"></li>
-	   					<li data-target="#index-carousel" data-slide-to="2"></li>
-	   					<li data-target="#index-carousel" data-slide-to="3"></li>
-	   					<li data-target="#index-carousel" data-slide-to="4"></li>
-	   				</ol>
-					<div class = "col-xs-12">
-	        		<h1 class = "text-center">Trail Mix</h1>
-	   				</div>
-	   				<!-- Wrapper for slides -->
-	   				<div class="carousel-inner" role="listbox">
-	   					<div class="item active">
-	   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking1.jpg" %>); height: 400px;">
-	   						</div>
-	   					</div>
-	   					<div class="item">
-	   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking2.jpg" %>); height: 400px;">
-	   						</div>
-	   					</div>
-						<div class="item">
-	   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking3.jpg" %>); height: 400px;">
-	   						</div>
-	   					</div>
-						<div class="item">
-	   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking4.jpg" %>); height: 400px;">
-	   						</div>
-	   					</div>
-	   					<div class="item">
-	   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking5.jpg" %>); height: 400px;">
-	   						</div>
-	   					</div>
-	   				</div>
-	   			
-
+		<div class="jumbotron special">
+		   <div class="container text-center">
+		      <h1>Trail Mix!</h1>
 						<%= form_tag root_path, method: 'get', class: 'form-inline' do %>
 							 
 							<div class="form-group">
@@ -70,10 +31,15 @@
 							</div>
 						
 						<% end %>
-					</div>
-				</div>
-		
+			</div>
+		</div>
 
+	   			
+
+
+
+		
+	<div>
 				<% if @response %>
 					<% @response["places"].each do |places| %>
 
@@ -92,20 +58,28 @@
 
 					<% end %>
 				<% end %>
-				<%= @trail %>
-
-				<%= @responses %>
-				<%= @name %>
+				<% unless @trail.nil? %>
+			<div class="container-fluid">
+				<div class="row">
+					<div class =".col-xs-12"><h1><%= @trail['places'][0]['name'] %></h1></div>
+					<div><%= @trail['places'][0]['city'] %>, <%= @trail['places'][0]['state'] %></div>
+					<div><%= @trail['places'][0]['activities'][0]['description'] %></div>
+					<p class="lead">.Description: <%= @trail['places'][0]['description'] %></p>
+				</div>
+			</div>	
+				<% end %>
+<!-- 				<%= @responses %>
+				<%= @name %> -->
 				<% unless @instagram.nil? %>
 
-   <% @instagram.each do |instagram| %>
+					   <% @instagram.each do |instagram| %>
 
-   <%= image_tag instagram.images.standard_resolution.url %>
+					   <%= image_tag instagram.images.standard_resolution.url %>
 
-   <% end %>
+					   <% end %>
 
-<% end %>
-
+					<% end %>
+</div>
 
     	<div id="map-canvas"> 
 
