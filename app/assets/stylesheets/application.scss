@@ -17,24 +17,25 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.carousel-inner {
-  max-height: 100%;
+html,body {
+	height:100%;
+}
+.special,.special .jumbotron {
+	height:100%;
 }
 
-.slider_image {
-  max-height: 100%;
+.jumbotron {
+    background-image: url('background.jpg');
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.item {
-	background-size: cover; 
-	background-position: center; 
+.navbar {
+   background-color: transparent;
+   background: transparent;
+   border-color: transparent;
 }
 
-.logo {
-  margin: 4px auto 0;
-}
 
-#map-canvas {
-	height: 300px;
-	width: 300px;
-}
+
