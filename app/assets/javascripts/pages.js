@@ -1,13 +1,14 @@
-
 var marker;
 
+
 	function initialize() {
+		if (document.getElementById("latlon") != null) {
 		lat = document.getElementById("latlon").getAttribute("lat");
 		lon = document.getElementById("latlon").getAttribute("lon");
 		console.log(lat);
 		console.log(lon);
 		var center = new google.maps.LatLng(lat, lon);
-		
+
 		// setting the mapOptions and how it looks
 	  	var mapOptions = {
 		    zoom: 5,
@@ -63,6 +64,8 @@ var marker;
 
 	    // when a marker is clicked  it will bounce up an
   		google.maps.event.addListener(marker, 'click', toggleBounce);
+  	}
+		else {}
 
 		
 	}
@@ -91,7 +94,7 @@ var marker;
 
 
 
-window.onload = initialize, loadScript;
+window.onload = loadScript;
 
 
 
