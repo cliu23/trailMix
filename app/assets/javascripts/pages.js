@@ -1,12 +1,15 @@
 var marker;
 
 	function initialize() {
+		var styles = [{"featureType":"all","elementType":"all","stylers":[{"color":"#d4b78f"},{"visibility":"on"}]},{"featureType":"all","elementType":"geometry.stroke","stylers":[{"color":"#0d0000"},{"visibility":"on"},{"weight":1}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#98290e"},{"visibility":"on"}]},{"featureType":"administrative","elementType":"labels.text.stroke","stylers":[{"visibility":"off"}]},{"featureType":"administrative.province","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"administrative.locality","elementType":"labels.text.fill","stylers":[{"color":"#98290e"},{"visibility":"on"}]},{"featureType":"administrative.locality","elementType":"labels.text.stroke","stylers":[{"visibility":"off"}]},{"featureType":"administrative.neighborhood","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#d4b78f"},{"visibility":"on"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.park","elementType":"all","stylers":[{"color":"#c4b17e"},{"visibility":"on"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"labels.text.fill","stylers":[{"color":"#0d0000"},{"visibility":"on"}]},{"featureType":"road.highway","elementType":"labels.text.stroke","stylers":[{"color":"#d9be94"},{"visibility":"on"}]},{"featureType":"road.highway.controlled_access","elementType":"geometry.fill","stylers":[{"color":"#0d0000"},{"visibility":"off"},{"weight":2}]},{"featureType":"road.arterial","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road.local","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#a8ac91"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"color":"#98290e"},{"visibility":"on"}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"visibility":"off"}]}];
+		var styledMap = new google.maps.StyledMapType(styles,
+    {name: "Pirate Map"});
 		if (document.getElementById("latlon") != null) {
-		lat = document.getElementById("latlon").getAttribute("lat");
-		lon = document.getElementById("latlon").getAttribute("lon");
-		console.log(lat);
-		console.log(lon);
-		var center = new google.maps.LatLng(lat, lon);
+			var lat = document.getElementById("latlon").getAttribute("lat");
+			var lon = document.getElementById("latlon").getAttribute("lon");
+			console.log(lat);
+			console.log(lon);
+			var center = new google.maps.LatLng(lat, lon);
 
 		// setting the mapOptions and how it looks
 	  	var mapOptions = {
@@ -14,13 +17,19 @@ var marker;
 		    center: center,
 			streetViewControl: true,
 			overviewMapControl: true,
+			mapTypeControlOptions: {
+      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+    		}
   		};
 
   		// initialize the map on to the page
-	 	var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+	 		var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+	 		  map.mapTypes.set('map_style', styledMap);
+ 			  map.setMapTypeId('map_style');
 
 	 	// setting up content for the infowindow
-		var contentString = '<div id="content">'+
+			var contentString = '<div id="content">'+
 		      '<div id="siteNotice">'+
 		      '</div>'+
 		      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
@@ -42,7 +51,7 @@ var marker;
 		      '</div>';
 
 		      // creatine a object for inforwindow and the content inside.
-		var infowindow = new google.maps.InfoWindow({
+			var infowindow = new google.maps.InfoWindow({
 		      content: contentString,
 		      maxWidth: 400
 		});
@@ -63,7 +72,28 @@ var marker;
 
 	    // when a marker is clicked  it will bounce up an
   		google.maps.event.addListener(marker, 'click', toggleBounce);
-  	}
+
+  		  	if (navigator.geolocation) {
+								navigator.geolocation.getCurrentPosition(success);
+
+								function success(position) {
+								var mylat = position.coords.latitude;
+								var mylon = position.coords.longitude;
+ 
+								var myLatlng = new google.maps.LatLng(mylat, mylon);
+ 
+								var mymarker = new google.maps.Marker({
+								position: myLatlng,
+								title: "My Current Location"
+							});
+ 
+				mymarker.setMap(map);
+				}
+							} 
+					else {
+								alert("Geo Location is not supported on your current browser!");
+							}
+  				}
 		else {}
 
 		
@@ -87,6 +117,7 @@ var marker;
 		  document.body.appendChild(script);
 
 		}
+
 
 
 
