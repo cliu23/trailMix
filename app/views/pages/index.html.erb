@@ -86,12 +86,13 @@
 						        <li><%= activity["description"] %></li>
 						        <li><%= activity["activity_type_name"] %></li>
 					        </ul>
-					    <%= link_to "Details", trail: "#{activity['name']}", lat: "{places['lat']}", action: "index" %>
+					    <%= link_to "Details", trail: "#{activity['name']}", action: "index" %>
 
 				    	<% end %>
 
 					<% end %>
 				<% end %>
+
 				<%= @trail %>
 
 				<%= @responses %>

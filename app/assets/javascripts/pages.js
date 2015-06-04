@@ -1,8 +1,17 @@
 var marker;
 
-	function initialize() {
-		var center = new google.maps.LatLng(38.619154, -97.557638);
 
+	function initialize() {
+		if (document.getElementById("latlon") != null) {
+		lat = document.getElementById("latlon").getAttribute("lat");
+		lon = document.getElementById("latlon").getAttribute("lon");
+		console.log(lat);
+		console.log(lon);
+		var center = new google.maps.LatLng(lat, lon);
+		}
+		else {
+			var center = new google.maps.LatLng(34, -118);
+		}
 		// setting the mapOptions and how it looks
 	  	var mapOptions = {
 		    zoom: 5,
@@ -58,6 +67,8 @@ var marker;
 
 	    // when a marker is clicked  it will bounce up an
   		google.maps.event.addListener(marker, 'click', toggleBounce);
+
+
 		
 	}
 
@@ -77,10 +88,18 @@ var marker;
 		  script.type = 'text/javascript';
 		  script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAd1KC9Oo39e7sLm0kKpoimB6lWQIguArk&callback=initialize';
 		  document.body.appendChild(script);
+
 		}
+
+
+
+
+
 
 window.onload = loadScript;
 
 
+
+
 	// Loads in Google maps on windows
-	google.maps.event.addDomListener(window, 'load', initialize);
+	// google.maps.event.addDomListener(window, 'load', create, loadscript);

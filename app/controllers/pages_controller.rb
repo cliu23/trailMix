@@ -32,7 +32,7 @@ class PagesController < ApplicationController
     end
       if params[:trail]
         trail = params[:trail]
-        name = trail.delete(' ')
+        name = trail.delete(' /')
         # weather not working yet
         # also need new trail get request
       trailuri = HTTParty.get(endpoint + "&q[name_eq]=#{trail}")
