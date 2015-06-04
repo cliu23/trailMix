@@ -1,6 +1,5 @@
 var marker;
 
-
 	function initialize() {
 		if (document.getElementById("latlon") != null) {
 		lat = document.getElementById("latlon").getAttribute("lat");
@@ -94,7 +93,9 @@ var marker;
 
 
 
-window.onload = loadScript;
+// window.onload = loadScript;
+
+
 
 
 

@@ -40,4 +40,7 @@
 		return Math.floor(Math.random()* 5);
 	}
 
-window.onload = loadQuote();
+window.onload = function(){
+  loadScript();
+  loadQuote();
+};
