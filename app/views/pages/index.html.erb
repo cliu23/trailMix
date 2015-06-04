@@ -1,78 +1,66 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Trail Mix</title>
-</head>
-    <body>
+    <div class="jumbotron special">
+    	<div class="navbar transparent navbar-inverse navbar-static-top hr">
+		    <div class="navbar-brand logo color" id="logo-color">Trail Mix</div>
+		    	<div class="navbar-brand-right">
+    </div>
+    <div class="container">
 
-	    <div class="container-fluid">
-	  		<div class="row">
-	  			
-	   			
-	   				<div class="carousel-inner" role="listbox">
-	   			<div id="index-carousel" class="carasouel slide" data-ride="carousel" data-interval="5000">
-	   				<!-- indicators -->
-	   				<ol class="carousel-indicators">
-	   					<li data-target="#index-carousel" data-slide-to="0" class="active"></li>
-	   					<li data-target="#index-carousel" data-slide-to="1"></li>
-	   					<li data-target="#index-carousel" data-slide-to="2"></li>
-	   					<li data-target="#index-carousel" data-slide-to="3"></li>
-	   					<li data-target="#index-carousel" data-slide-to="4"></li>
-	   				</ol>
-					<div class = "col-xs-12">
-	        		<h1 class = "text-center">Trail Mix</h1>
-	   				</div>
-	   				<!-- Wrapper for slides -->
-	   				<div class="carousel-inner" role="listbox">
-	   					<div class="item active">
-	   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking1.jpg" %>); height: 400px;">
-	   						</div>
-	   					</div>
-	   					<div class="item">
-	   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking2.jpg" %>); height: 400px;">
-	   						</div>
-	   					</div>
-						<div class="item">
-	   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking3.jpg" %>); height: 400px;">
-	   						</div>
-	   					</div>
-						<div class="item">
-	   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking4.jpg" %>); height: 400px;">
-	   						</div>
-	   					</div>
-	   					<div class="item">
-	   						<div style="background-size: cover; background-position: center; background-image: url(<%= asset_path "hiking5.jpg" %>); height: 400px;">
-	   						</div>
-	   					</div>
-	   				</div>
-	   			
+        <div class="navbar-header color">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-						<%= form_tag root_path, method: 'get', class: 'form-inline' do %>
-							 
-							<div class="form-group">
-								<%= text_field_tag :location, nil, placeholder: 'Type an address, city, or zip code.', class: 'form-control' %>
-							</div>
-							<div class="form-group">
-								<%= select_tag "activity", "
-								<option value=''>Select an Activity</option>
-								<option>hiking</option>
-								<option>camping</option>
-								<option>mountain biking</option>
-								<option>caving</option>
-								<option>snow sports</option>
+        </div>
+        <div class="navbar-collapse collapse pull-right">
+            <ul class="nav navbar-nav mineul color">
+              <li><a href="#">About</a></li>
+               <li><a href="#">Contact</a></li>
+               <li><a href="#">Help</a></li>
+            </ul>
 
-								".html_safe, class: 'form-control' %>
-							</div>
-							<div class="form-group">
-								<%= submit_tag "Search", class: "btn btn-default" %>
-							</div>
-						
-						<% end %>
+        </div>
+    </div>
+</div>
+		<div class="container">
+			
+	   			 <div class="container-fluid " id="section2">
+	   			 	<div class="row">
+	   			 		<div class="col-md-12 text-center">
+	   			 		<%= image_tag "LogoWithWolf.png", :id => "style_image" %>
+	   			 		</div>
+	   			 		<div class="col-md-12 text-center">
+							<%= form_tag root_path, method: 'get', class: 'form-inline' do %>
+								 <div class="form-group">
+									<%= text_field_tag :location, nil, placeholder: 'Type an address, city, or zip code.', class: 'form-control' %>
+								</div>
+								<div class="form-group">
+									<%= select_tag "activity", "
+									<option value=''>Select an Activity</option>
+									<option>hiking</option>
+									<option>camping</option>
+									<option>mountain biking</option>
+									<option>caving</option>
+									<option>snow sports</option>
+
+									".html_safe, class: 'form-control' %>
+								</div>
+								<div class="form-group">
+									<%= submit_tag "Search", class: "btn btn-default" %>
+								</div>
+							<% end %>
+							<br>
+							<p id="quote"></p>
+						</div>
+
 					</div>
-				</div>
-		
+				</div>		
+			</div>
+		</div>
+
+
 
 				<% if @response %>
 					<% @response["places"].each do |places| %>
@@ -93,19 +81,28 @@
 					<% end %>
 				<% end %>
 
-				<%= @trail %>
 
-				<%= @responses %>
-				<%= @name %>
-				<% unless @instagram.nil? %>
 
-   <% @instagram.each do |instagram| %>
 
-   <%= image_tag instagram.images.standard_resolution.url %>
+			<% unless @trail.nil? %>
+				<div class="container-fluid">
+					<div class="row">
+						<div class =".col-xs-12"><h1><%= @trail['places'][0]['name'] %></h1></div>
+						<div><%= @trail['places'][0]['city'] %>, <%= @trail['places'][0]['state'] %></div>
+						<div><%= @trail['places'][0]['activities'][0]['description'] %></div>
+							<p class="lead">.Description: <%= @trail['places'][0]['description'] %></p>
+					</div>
+				</div>	
+			<% end %>
+			<% unless @instagram.nil? %>
 
-   <% end %>
+				<% @instagram.each do |instagram| %>
 
-<% end %>
+				<%= image_tag instagram.images.standard_resolution.url %>
+
+   				<% end %>
+
+			<% end %>
 
 
     	<div id="map-canvas"> 
@@ -113,6 +110,4 @@
 		</div>
 
 
-    </body>
-</html>
 

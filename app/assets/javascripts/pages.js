@@ -1,3 +1,4 @@
+
 var marker;
 
 
@@ -8,10 +9,7 @@ var marker;
 		console.log(lat);
 		console.log(lon);
 		var center = new google.maps.LatLng(lat, lon);
-		}
-		else {
-			var center = new google.maps.LatLng(34, -118);
-		}
+		
 		// setting the mapOptions and how it looks
 	  	var mapOptions = {
 		    zoom: 5,
@@ -68,7 +66,8 @@ var marker;
 	    // when a marker is clicked  it will bounce up an
   		google.maps.event.addListener(marker, 'click', toggleBounce);
 
-
+  	}
+  	else {}
 		
 	}
 
@@ -103,3 +102,4 @@ window.onload = loadScript;
 
 	// Loads in Google maps on windows
 	// google.maps.event.addDomListener(window, 'load', create, loadscript);
+
