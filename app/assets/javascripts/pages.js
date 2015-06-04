@@ -1,9 +1,7 @@
 
 var marker;
 
-
 	function initialize() {
-		if (document.getElementById("latlon") != null) {
 		lat = document.getElementById("latlon").getAttribute("lat");
 		lon = document.getElementById("latlon").getAttribute("lon");
 		console.log(lat);
@@ -66,8 +64,6 @@ var marker;
 	    // when a marker is clicked  it will bounce up an
   		google.maps.event.addListener(marker, 'click', toggleBounce);
 
-  	}
-  	else {}
 		
 	}
 
@@ -95,7 +91,7 @@ var marker;
 
 
 
-window.onload = loadScript;
+window.onload = initialize, loadScript;
 
 
 

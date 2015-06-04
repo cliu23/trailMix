@@ -16,6 +16,9 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+
+
+
 	function loadQuote(){
 		
 			var quotes = [
