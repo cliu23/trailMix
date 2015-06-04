@@ -1,11 +1,4 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Trail Mix</title>
-</head>
-    <body>
     <div class="jumbotron special">
     	<div class="navbar transparent navbar-inverse navbar-static-top hr">
 		    <div class="navbar-brand logo color">Trail Mix</div>
@@ -36,6 +29,9 @@
 	   			 <div class="container-fluid " id="section2">
 	   			 	<div class="row">
 	   			 		<div class="col-md-12 text-center">
+	   			 		<%= image_tag "LogoWithWolf.png", :id => "style_image" %>
+	   			 		</div>
+	   			 		<div class="col-md-12 text-center">
 							<%= form_tag root_path, method: 'get', class: 'form-inline' do %>
 								 <div class="form-group">
 									<%= text_field_tag :location, nil, placeholder: 'Type an address, city, or zip code.', class: 'form-control' %>
@@ -55,7 +51,10 @@
 									<%= submit_tag "Search", class: "btn btn-default" %>
 								</div>
 							<% end %>
+							<br>
+							<p id="quote"></p>
 						</div>
+
 					</div>
 				</div>		
 			</div>
@@ -102,6 +101,4 @@
 		</div>
 
 
-    </body>
-</html>
 
