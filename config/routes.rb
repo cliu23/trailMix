@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root 'pages#index'
+  root 'pages#welcome'
+  get '/trails' => 'pages#index'
+  get '/trails/trailinfo' => 'pages#show'
   get '/users' => 'users#index'
   get 'signup' => 'users#new'
   post '/users' => 'users#create'
