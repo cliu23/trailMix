@@ -44,7 +44,8 @@ class PagesController < ApplicationController
         name = trail.delete(' /')
         # weather not working yet
         # also need new trail get request
-      trailuri = HTTParty.get(endpoint + "&q[name_eq]=#{trail}")
+      encoded_url = URI.encode(endpoint + "&q[name_eq]=#{trail}")
+      trailuri = HTTParty.get(encoded_url)
       @trail = JSON.parse(trailuri.body)
       @lat = @trail["places"][0]["lat"]
       @lon = @trail["places"][0]["lon"]
