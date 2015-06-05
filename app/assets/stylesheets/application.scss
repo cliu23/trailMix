@@ -44,7 +44,7 @@ html,body {
     background-repeat: no-repeat;
 }
 .jumbotron_show {
-
+background-image: url('http://celsiussnow.com/wp-content/uploads/2013/08/Light-Wood-Background1-1024x640.jpg');
     background-position: 0% 25%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -163,4 +163,9 @@ html,body {
   letter-spacing: 3px;
   text-decoration: underline;
 
+}
+
+.place_body{
+  font-size: 2em;
+  color: white;
 }
