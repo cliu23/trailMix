@@ -55,5 +55,12 @@ group :development, :test do
   gem 'spring'
   gem 'pry-rails'
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+  gem 'thin'
+end
+
+
 end
 
