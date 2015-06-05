@@ -51,7 +51,7 @@ class PagesController < ApplicationController
       @responses = JSON.parse(searchuri.body)
       @name = @responses['city']['name']
       @instagram = Instagram.tag_recent_media("#{name}", {:count => 4})
-      @tweets = $client.search("##{name}" + " -rt", result_type: "recent").take(3)
+      # @tweets = $client.search("##{name}" + " -rt", result_type: "recent").take(3)
     else
     end
   # we need to take lat and lon from show location and save as varialble named lat lon
