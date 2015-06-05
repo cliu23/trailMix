@@ -60,5 +60,18 @@ class PagesController < ApplicationController
       @tweets = $client.search("##{name}" + " -rt", result_type: "recent").take(3)
        @instagram = Instagram.tag_recent_media("#{name}", {:count => 4})
   end
+
+  def about
+
+  end
+
+  def contact
+
+  end
+
+  def help
+  
+  end
+
 end
 
