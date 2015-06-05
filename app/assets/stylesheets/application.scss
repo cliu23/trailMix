@@ -33,12 +33,12 @@
 html,body {
 	height:100%;
 }
-.special, .jumbotron, .jumbotron_bottom  {
+.special, .jumbotron, .jumbotron_index  {
 	height:100%;
 }
 
 .jumbotron {
-    background-image: url('background.jpg');
+    background-image: url('http://i.imgur.com/2UywLXQ.jpg');
     background-position: 0% 25%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -111,10 +111,8 @@ html,body {
 
 }
 
-.random {
-  
-  border-radius: 50px;
-  margin: 10px;
+.panel-body {
+  color: #FFF;
 }
 
 #video-background {
