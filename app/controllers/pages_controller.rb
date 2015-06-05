@@ -1,8 +1,11 @@
 class PagesController < ApplicationController
 
+  def welcome
+  end
+
   def index
 
-    endpoint = "https://outdoor-data-api.herokuapp.com/api.json?api_key=4146c148c3d63d322c2b88b4870a6ba1"
+    
     if params[:location] && params[:location] != ''
       @geocode = Geocoder.coordinates(params[:location])
       @lat = @geocode[0]
@@ -31,7 +34,11 @@ class PagesController < ApplicationController
         @coordinates << [place["lat"],place["lon"]]
       end
     end
-      if params[:trail]
+
+  end
+  # container method
+  def show
+          if params[:trail]
         trail = params[:trail]
         name = trail.delete(' /')
         # weather not working yet
@@ -47,18 +54,20 @@ class PagesController < ApplicationController
       @tweets = $client.search("##{name}" + " -rt", result_type: "recent").take(3)
     else
     end
-  end
-  # container method
-  def show
   # we need to take lat and lon from show location and save as varialble named lat lon
   # we need to remove whitespace from trail name and save as a variable named name
   # weather endpoint
-        searchuri = HTTParty.get "http://api.openweathermap.org/data/2.5/forecast/daily?lat=#{@lat}&lon=#{@lon}&units=imperial&cnt=5&mode=json"
-        @responses = JSON.parse(searchuri.body)
+        # searchuri = HTTParty.get "http://api.openweathermap.org/data/2.5/forecast/daily?lat=#{@lat}&lon=#{@lon}&units=imperial&cnt=5&mode=json"
+        # @responses = JSON.parse(searchuri.body)
  
   # tweet and instagram endpoints
-      @tweets = $client.search("##{name}" + " -rt", result_type: "recent").take(3)
-       @instagram = Instagram.tag_recent_media("#{name}", {:count => 4})
+      # @tweets = $client.search("##{name}" + " -rt", result_type: "recent").take(3)
+      #  @instagram = Instagram.tag_recent_media("#{name}", {:count => 4})
+  end
+
+  private
+  def endpoint
+    endpoint = "https://outdoor-data-api.herokuapp.com/api.json?api_key=4146c148c3d63d322c2b88b4870a6ba1"
   end
 end
 

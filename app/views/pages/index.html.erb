@@ -1,115 +1,23 @@
+        <% if @response %>
+          <% @response["places"].each do |places| %>
 
-    <div class="jumbotron special">
-    	<div class="navbar transparent navbar-inverse navbar-static-top hr">
-		    <div class="navbar-brand logo color" id="logo-color">Trail Mix</div>
-		    	<div class="navbar-brand-right">
-    </div>
-    <div class="container">
+              <h2><%= "#{places["city"]}, #{places["state"]}" %></h2>
 
-        <div class="navbar-header color">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+              <% places["activities"].each do |activity| %>
+                  
+                <ul>
+                    <li><%= activity["name"] %></li>
+                    <li><%= activity["description"] %></li>
+                    <li><%= activity["activity_type_name"] %></li>
+                  </ul>
+              <%= link_to "Details", trail: "#{activity['name']}", action: "show" %>
 
-        </div>
-        <div class="navbar-collapse collapse pull-right">
-            <ul class="nav navbar-nav mineul color">
-              <li><a href="#">About</a></li>
-               <li><a href="#">Contact</a></li>
-               <li><a href="#">Help</a></li>
-            </ul>
+              <% end %>
 
-        </div>
-    </div>
-</div>
-		<div class="container">
-			
-	   			 <div class="container-fluid " id="section2">
-	   			 	<div class="row">
-	   			 		<div class="col-md-12 text-center">
-	   			 		<%= image_tag "LogoWithWolf.png", :id => "style_image" %>
-	   			 		</div>
-	   			 		<div class="col-md-12 text-center">
-							<%= form_tag root_path, method: 'get', class: 'form-inline' do %>
-								 <div class="form-group">
-									<%= text_field_tag :location, nil, placeholder: 'Type an address, city, or zip code.', class: 'form-control' %>
-								</div>
-								<div class="form-group">
-									<%= select_tag "activity", "
-									<option value=''>Select an Activity</option>
-									<option>hiking</option>
-									<option>camping</option>
-									<option>mountain biking</option>
-									<option>caving</option>
-									<option>snow sports</option>
-
-									".html_safe, class: 'form-control' %>
-								</div>
-								<div class="form-group">
-									<%= submit_tag "Search", class: "btn btn-default" %>
-								</div>
-							<% end %>
-							<br>
-							<p id="quote"></p>
-						</div>
-
-					</div>
-				</div>		
-			</div>
-		</div>
-
-
-
-				<% if @response %>
-					<% @response["places"].each do |places| %>
-
-				    	<h2><%= "#{places["city"]}, #{places["state"]}" %></h2>
-
-							<% places["activities"].each do |activity| %>
-				          
-					    	<ul>
-						        <li><%= activity["name"] %></li>
-						        <li><%= activity["description"] %></li>
-						        <li><%= activity["activity_type_name"] %></li>
-					        </ul>
-					    <%= link_to "Details", trail: "#{activity['name']}", action: "index" %>
-
-				    	<% end %>
-
-					<% end %>
-				<% end %>
+          <% end %>
+        <% end %>
 
 
 
 
-			<% unless @trail.nil? %>
-				<div class="container-fluid">
-					<div class="row">
-						<div class =".col-xs-12"><h1><%= @trail['places'][0]['name'] %></h1></div>
-						<div><%= @trail['places'][0]['city'] %>, <%= @trail['places'][0]['state'] %></div>
-						<div><%= @trail['places'][0]['activities'][0]['description'] %></div>
-							<p class="lead">.Description: <%= @trail['places'][0]['description'] %></p>
-					</div>
-				</div>	
-			<% end %>
-			<% unless @instagram.nil? %>
-
-				<% @instagram.each do |instagram| %>
-
-				<%= image_tag instagram.images.standard_resolution.url %>
-
-   				<% end %>
-
-			<% end %>
-
-
-    	<div id="map-canvas" style="width:500px; height:300px"></div>
-
-		<% if logged_in? %>
-		   <%= render 'layouts/logout' %>
-		 <% else %>
-    	<%= render 'layouts/login_form' %>
-    <% end %>
-
+ 
