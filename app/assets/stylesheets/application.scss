@@ -33,7 +33,7 @@
 html,body {
 	height:100%;
 }
-.special, .jumbotron, .jumbotron_index  {
+.special, .jumbotron, .jumbotron_index, .jumbotron_show  {
 	height:100%;
 }
 
@@ -43,7 +43,12 @@ html,body {
     background-size: cover;
     background-repeat: no-repeat;
 }
+.jumbotron_show {
 
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
 .navbar {
    background-color: transparent;
