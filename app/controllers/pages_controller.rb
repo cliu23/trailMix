@@ -69,5 +69,18 @@ class PagesController < ApplicationController
   def endpoint
     endpoint = "https://outdoor-data-api.herokuapp.com/api.json?api_key=4146c148c3d63d322c2b88b4870a6ba1"
   end
+
+  def about
+
+  end
+
+  def contact
+
+  end
+
+  def help
+  
+  end
+
 end
 

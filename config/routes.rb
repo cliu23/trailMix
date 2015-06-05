@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
-
+  get '/about' => 'pages#about'
+  get '/help' => 'pages#help'
+  get '/contact' => 'pages#contact'
 end
