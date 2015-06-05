@@ -66,6 +66,7 @@ html,body {
 #logo-color {
   color:#FFF;
   font-size: 3em;
+  letter-spacing: 3px;
 }
 
 
@@ -92,6 +93,7 @@ html,body {
   border-radius: 10px;
   background-size:cover;
   margin: 0 2px 15px;
+  
  
   padding: 15px;
   padding-bottom: 5px;
@@ -127,3 +129,33 @@ html,body {
   z-index: -100;
 }
 
+.pin:hover {
+  background: black;
+}
+
+ .logo {
+      color: #FFF;
+      letter-spacing: 3px;
+      &:hover {
+         color: red;
+         text-decoration: none;
+       }
+     }
+.navbar .nav > li > a {
+  &.navcolor {
+    color: #FFF;
+  }
+  &:hover {
+    color:red;
+  }
+}
+
+.title{
+  text-align: center;
+  margin: 0 auto;
+  font-family: 'capture_itregular';
+  color: #FFF;
+  letter-spacing: 3px;
+  text-decoration: underline;
+
+}
