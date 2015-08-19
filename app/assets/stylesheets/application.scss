@@ -32,35 +32,101 @@
 
 html,body {
 	height:100%;
-}
-.special, .jumbotron, .jumbotron_index, .jumbotron_show  {
-	height:100%;
+  margin: 0;
+  padding: 0;
 }
 
-.jumbotron {
-    background-image: url('http://i.imgur.com/2UywLXQ.jpg');
-    background-position: 0% 25%;
-    background-size: cover;
-    background-repeat: no-repeat;
+.container {
+  max-width: 940px;
+  margin: 0 auto;
 }
-.jumbotron_show {
-background-image: url('http://celsiussnow.com/wp-content/uploads/2013/08/Light-Wood-Background1-1024x640.jpg');
-    background-position: 0% 25%;
+
+/* Background for the static pages*/
+.static {
+    background: url('http://i.imgur.com/2UywLXQ.jpg')no-repeat center center fixed;
     background-size: cover;
-    background-repeat: no-repeat;
+    height: 100%;
+    padding-top: 30px;
+     overflow: auto;
 }
+/* Header */
+
+.header {
+  background: transparent;
+  font-family: capture_itregular;
+  margin-bottom: 50px;
+
+    h1 {
+      color: #FFF;
+      text-shadow: 3px 3px #000;
+      transition: 1s;
+      font-size: 3.7em;
+
+    }
+    
+    ul {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      font-size: 1.3em;
+    }
+
+    li {
+      display: inline;
+      padding-right: 30px;
+    }
+
+    a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #FFF;
+      text-shadow: 3px 3px #000;
+        transition: 1s;
+
+    }
+
+    a:hover, h1:hover {
+      color: #000;
+      text-shadow: 3px 3px #fff;
+      transition: 1s;
+      cursor: pointer;
+    }
+
+}
+
+#quote {
+  color:#FFF;
+  font-size: 1.5em;
+  
+}
+/* Footer */
+
+.footer, .page-wrap:after {
+  p{
+    color: #fff;
+    height: 100px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
 
 .navbar {
-   background-color: transparent;
    background: transparent;
    border-color: transparent;
    font-family: capture_itregular;
    color: #FFF;
 }
 
-#quote {
-	color:#FFF;
-}
+
 
 #style_image {
 	height:475px;
@@ -75,10 +141,7 @@ background-image: url('http://celsiussnow.com/wp-content/uploads/2013/08/Light-W
 }
 
 
-#map-canvas {
-  height: 400px;
-  width: 400px
-}
+
 
 #columns {
   -webkit-column-count: 3;
@@ -139,33 +202,15 @@ background-image: url('http://celsiussnow.com/wp-content/uploads/2013/08/Light-W
 }
 
  .logo {
-      color: #FFF;
-      letter-spacing: 3px;
-      &:hover {
-         color: red;
-         text-decoration: none;
-       }
-     }
-.navbar .nav > li > a {
-  &.navcolor {
-    color: #FFF;
-  }
-  &:hover {
-    color:red;
-  }
-}
-
-.title{
-  text-align: center;
-  margin: 0 auto;
-  font-family: 'capture_itregular';
   color: #FFF;
   letter-spacing: 3px;
-  text-decoration: underline;
-
+      
+    &:hover {
+    color: red;
+    text-decoration: none;
+    }
 }
 
-.place_body{
-  font-size: 2em;
-  color: white;
-}
+
+
+

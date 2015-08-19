@@ -1,18 +1,91 @@
-#contact{
-	background-image: url('http://i.imgur.com/e5cdX41.jpg');
+
+
+.section{
+	background: url(http://i.imgur.com/DtosBG4.jpg) no-repeat center center;
 	background-size: cover;
+	border-radius: 25px;
+	border: 5px solid #fff;
+	padding: 20px;
+	width: 100%;
+	text-align: center;
+
+	ul{
+	list-style: none;
+	paddiimgng: 0;
+	margin: 0;
+
+	}
+}
+
+/********************** Index Page********************/
+
+.btn-group {
+	
+	a{
+		padding: 10px 30px;
+		background: #872637;
+		color: #fff;
+		
+		transitions: 1s;
+	}
+	a:hover{
+		background: dodgerblue;
+		color: #fff;
+		transitions: 1s;
+		text-decoration: none;
+		cursor: pointer;
+	}
 
 }
-#about{
-  background-image: url('http://i.imgur.com/e5cdX41.jpg');
-  font-family: capture_itregular;
-  color: rgb(213, 200, 207);
-  height: 100%;
-}
-#about-content {
-  color: black;
+.title{
+  text-align: center;
+  font-family: 'capture_itregular';
+  color: #fff;
+  letter-spacing: 3px;
+  text-decoration: underline;
+
 }
 
-.hhh {
-	color: grey;
+
+/*************** show page **********************/
+
+.main {
+	background: url(http://i.imgur.com/DtosBG4.jpg);
+	border: 5px solid #fff;
+	border-radius: 25px;
+	width: 75%;
+	margin: 0 auto;
+	margin-bottom: 150px;
+
+}
+
+/* Trail content*/
+.place_body{
+  font-size: 2em;
+  color: #000;
+  margin: 30px 0 30px 20px;;
+}
+
+/* Google Map */
+
+
+#map-canvas {
+  height: 400px;
+  width: 400px;
+  margin: 30px 0 30px 20px;
+  border: 5px solid #fff;
+  	border-radius: 25px;
+
+}
+
+/* instagram pictures  */
+.img_container {
+
+	img {
+		border: 5px solid black;
+		border-radius: 25px;
+	
+	}
+
+
 }

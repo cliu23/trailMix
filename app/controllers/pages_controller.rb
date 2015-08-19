@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   require "addressable/uri"
-  before_action :logged_in_user, only: [:index, :show]
   def welcome
   end
 
@@ -39,20 +38,21 @@ class PagesController < ApplicationController
   end
   # container method
   def show
-          if params[:trail]
+    if params[:trail]
         trail = params[:trail]
         name = trail.delete(' /')
         # weather not working yet
         # also need new trail get request
-      encoded_url = URI.encode(endpoint + "&q[name_eq]=#{trail}")
-      trailuri = HTTParty.get(encoded_url)
-      @trail = JSON.parse(trailuri.body)
-      @lat = @trail["places"][0]["lat"]
-      @lon = @trail["places"][0]["lon"]
-      # searchuri = HTTParty.get "http://api.openweathermap.org/data/2.5/forecast/daily?lat=#{@lat}&lon=#{@lon}&units=imperial&cnt=5&mode=json"
+        encoded_url = URI.encode(endpoint + "&q[name_eq]=#{trail}")
+        trailuri = HTTParty.get(encoded_url)
+        @trail = JSON.parse(trailuri.body)
+        @lat = @trail["places"][0]["lat"]
+        @lon = @trail["places"][0]["lon"]
+
+        # searchuri = HTTParty.get "http://api.openweathermap.org/data/2.5/forecast/daily?lat=#{@lat}&lon=#{@lon}&units=imperial&cnt=5&mode=json"
       # @responses = JSON.parse(searchuri.body)
       # @name = @responses['city']['name']
-      @instagram = Instagram.tag_recent_media("#{name}", {:count => 4})
+      @instagram = Instagram.tag_recent_media("#{name}", {:count => 3})
       # @tweets = $client.search("##{name}" + " -rt", result_type: "recent").take(3)
     else
     end
@@ -68,6 +68,7 @@ class PagesController < ApplicationController
   end
 
   private
+
   def endpoint
     endpoint = "https://outdoor-data-api.herokuapp.com/api.json?api_key=4146c148c3d63d322c2b88b4870a6ba1"
   end
@@ -82,6 +83,10 @@ class PagesController < ApplicationController
 
   def help
   
+  end
+
+  def blog
+
   end
 
 end

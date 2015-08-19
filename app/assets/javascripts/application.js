@@ -16,22 +16,22 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-
-var quotes = [
+$(document).ready(function(){
+	var quotes = [
 
 			'"Every moment you live in the past is a moment you waste in the present..."', 
 			'"Live each day as if your life had just begun...."', 
 			'"Start by doing what\'s necessary, then do what\'s possible, and suddenly you are doing the impossible"',
 			'"You have to learn the rules of the game. And then you have to play better than anyone else"',
 			'"Failure will never overtake me if my determination to succeed is strong enough."',
-			'"No, MEANS NO..."',
-            '"There is no sex after KoreanBBQ"',
+			'"This is our life.  Do what you love, and do it often."',
+            '"Life is like riding a bicycle.  To keep your balance you must keep moving"',
             '"Don\'t limit your challenges, challenge your limits."',
             '"It\'s never too late to be what you might have been."',
-            '"Big girls need love too."',
-            '"Stay thirsty my friends."',
-            '"TOO MUCH agreement, kills a chat."',
-            '"A World without women, would be a pain in the ASS."',
+            '"It ain\'t about how hard you hit; it\'s about how hard you get hit, and keep moving foward"',
+            '"I take rejection as someone blowing a bugle in my ear to wake me up and get going, rather than retreat."',
+            '"Until you start believing in yourself, you ain\'t gonna have a life!"',
+            '"Life has no limitations, except the ones you make"',
             '"Nothing is impossible, the word itself spells \"I\'m POSSIBLE\""'
 			];
 
@@ -48,9 +48,9 @@ var quotes = [
 
 	function getRandom(){
 		return Math.floor(Math.random() * quotes.length);
-	}
+		}
 
-window.onload = function(){
   loadScript();
   loadQuote();
-};
+  
+});
