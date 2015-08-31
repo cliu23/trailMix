@@ -5,13 +5,11 @@ class PagesController < ApplicationController
 
   def index
 
-    
     if params[:location] && params[:location] != ''
       @geocode = Geocoder.coordinates(params[:location])
       @lat = @geocode[0]
       @lon = @geocode[1]
     end
-
 
     if params[:activity]
       if @lat && @lon
@@ -23,12 +21,14 @@ class PagesController < ApplicationController
       @response["places"].each do |place|
         @coordinates << [place["lat"],place["lon"]]
       end
+
     elsif params[:activity] == ''
       if @lat && @lon
         @response = HTTParty.get(endpoint + "&lat=#{@lat}&lon=#{@lon}")
       else
         @response = HTTParty.get(endpoint)
       end
+
       @coordinates = []
       @response["places"].each do |place|
         @coordinates << [place["lat"],place["lon"]]
@@ -49,7 +49,7 @@ class PagesController < ApplicationController
         @lat = @trail["places"][0]["lat"]
         @lon = @trail["places"][0]["lon"]
 
-        # searchuri = HTTParty.get "http://api.openweathermap.org/data/2.5/forecast/daily?lat=#{@lat}&lon=#{@lon}&units=imperial&cnt=5&mode=json"
+      # searchuri = HTTParty.get "http://api.openweathermap.org/data/2.5/forecast/daily?lat=#{@lat}&lon=#{@lon}&units=imperial&cnt=5&mode=json"
       # @responses = JSON.parse(searchuri.body)
       # @name = @responses['city']['name']
       @instagram = Instagram.tag_recent_media("#{name}", {:count => 3})
